@@ -24,15 +24,7 @@ composer install
 
 This installs all Symfony and PHP dependencies required for the application to run.
 
-### 4. Start the application
-
-You can start it with:
-
-```bash
-symfony server:start
-```
-
-### 5. Update the database 
+### 4. Update the database 
 
 Run:
 
@@ -40,3 +32,13 @@ Run:
 symfony console doctrine:database:create
 symfony console doctrine:migrations:migrate
 ```
+
+### 5. Start the application
+
+You can start it with:
+
+```bash
+symfony server:start
+```
+
+
