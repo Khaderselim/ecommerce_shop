@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Category{% endblock %}
+{% block page_title %}<h2>Category Management</h2>{% endblock %}
+{% block panel_heading %}Category Information: {{ category.title }}{% endblock %}
 
 {% block body %}
-    <h1>Category</h1>
+
 
     <table class="table">
         <tbody>
@@ -18,9 +20,13 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_category_index') }}">back to list</a>
+    <div class="btn-toolbar" role="toolbar" aria-label="Category actions">
+        <div class="btn-group" role="group" aria-label="Edit category">
+            <a class="btn btn-default" href="{{ path('app_category_edit', {'id': category.id}) }}">edit</a>
+        </div>
+        <div class="btn-group" role="group" aria-label="Delete category">
+            {{ include('category/_delete_form.html.twig') }}
+        </div>
+    </div>
 
-    <a href="{{ path('app_category_edit', {'id': category.id}) }}">edit</a>
-
-    {{ include('category/_delete_form.html.twig') }}
 {% endblock %}

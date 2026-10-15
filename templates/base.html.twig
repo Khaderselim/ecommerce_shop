@@ -79,13 +79,23 @@
                         <i class="icon-edit"></i> Create Product
                     </a>
                 </li>
+                <li class="panel">
+                    <a href="{{ path('app_category_index') }}">
+                        <i class="icon-list"></i> Our Categories
+                    </a>
+                </li>
+                <li class="panel">
+                    <a href="{{ path('app_category_new') }}">
+                        <i class="icon-edit"></i> Create Category
+                    </a>
+                </li>
             </ul>
         </div>
         <div id="content">
             <div class="inner" style="min-height:1200px;">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2>Product Management</h2>
+                        {% block page_title %}<h2>Product Management</h2>{% endblock %}
                     </div>
                 </div>
                 <hr/>
