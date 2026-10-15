@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Product{% endblock %}
+{% block panel_heading %}Edit Product{% endblock %}
+{% block body %}
+
+    {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('product/_delete_form.html.twig') }}
+{% endblock %}

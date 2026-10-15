@@ -1,0 +1,7 @@
+twig:
+    file_name_pattern: '*.twig'
+    form_themes: ['bootstrap_3_layout.html.twig'] #add this line to set the form theme for Twig templates
+
+when@test:
+    twig:
+        strict_variables: true

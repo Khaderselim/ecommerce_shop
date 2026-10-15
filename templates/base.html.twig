@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('assets/css/fonts/css/font-awesome.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}"/>
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+
+        {% set frankenphp_hot_reload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
+
+    </head>
+    <body class="padTop53 ">
+    <div id="wrap">
+        <div id="top">
+            <nav class="navbar navbar-inverse navbar-fixed-top " style="padding-top: 10px;">
+                <a data-original-title="Show/Hide Menu" data-placement="bottom" data-tooltip="tooltip" class="accordion-toggle btn btn-primary btn-sm visible-xs" data-toggle="collapse" href="#menu" id="menu-toggle">
+                    <i class="icon-align-justify"></i>
+                </a>
+                <header class="navbar-header">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="{{ asset('assets/imgs/logo.png') }}" alt=""/></a>
+                </header>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="icon-user "></i>&nbsp; <i class="icon-chevron-down "></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">
+                                    <i class="icon-user"></i> Profile
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="login.html">
+                                    <i class="icon-signout"></i> Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div id="left">
+            <div class="media user-media well-small">
+                <a class="user-link" href="#">
+                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="{{ asset('assets/imgs/user.gif') }}"/>
+                </a>
+                <br/>
+                <div class="media-body">
+                    <h5 class="media-heading"> Aziz</h5>
+                    <ul class="list-unstyled user-info">
+                        <li>
+                            <a class="btn btn-success btn-xs btn-circle" style="width: 10px;height: 12px;"></a> online
+
+                        </li>
+                    </ul>
+                </div>
+                <br/>
+            </div>
+            <ul id="menu" class="collapse">
+                <li class="panel">
+                    <a href="{{ path('app_product_index') }}" >
+                        <i class="icon-list"></i> Our Products
+                    </a>
+                </li>
+                <li class="panel">
+                    <a href="{{ path('app_product_new') }}">
+                        <i class="icon-edit"></i> Create Product
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            <div class="inner" style="min-height:1200px;">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Product Management</h2>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                {% block panel_heading %}{% endblock %}
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    {% block body %}{% endblock %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <p>
+            &copy; <a href="https://menchari.codeberg.page">menchari</a> &nbsp;2024 &nbsp;
+        </p>
+    </div>
+
+    </body>
+    {% if frankenphp_hot_reload %}
+        <meta name="frankenphp-hot-reload:url" content="{{ frankenphp_hot_reload }}">
+        <script src="https://cdn.jsdelivr.net/npm/idiomorph"></script>
+        <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
+    {% endif %}
+    <script src="{{ asset('assets/js/jquery-2.0.3.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+</html>
