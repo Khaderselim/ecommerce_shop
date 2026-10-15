@@ -158,7 +158,7 @@ templates/product/new.html.twig
 templates/product/show.html.twig
 ```
 
-> **Heads up:** if the generated form class is named `Product1Type.php` instead of `ProductType.php`, a `ProductType` file already existed. Either rename `Product1Type` to `ProductType` (in the file and in `ProductController.php`), or use `Product1Type` everywhere this guide says `ProductType`.
+
 
 ---
 
